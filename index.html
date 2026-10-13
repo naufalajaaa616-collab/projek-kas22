@@ -1,0 +1,700 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laporan Kas RT 07 RW 03</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f3f6fc;
+      font-family: Arial, sans-serif;
+      color: #25334a;
+    }
+
+    .sidebar {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #102a56, #1769aa);
+      color: white;
+      padding: 25px 18px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: #ffffff25;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+    }
+
+    .menu-link {
+      display: block;
+      color: #e4efff;
+      text-decoration: none;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+    }
+
+    .menu-link:hover,
+    .menu-link.active {
+      background: #ffffff25;
+      color: white;
+    }
+
+    .main-content {
+      padding: 28px;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #1769aa, #438df0);
+      border-radius: 20px;
+      color: white;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px #1769aa20;
+    }
+
+    .stat-card,
+    .content-card {
+      border: none;
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 5px 22px #172b4d0b;
+    }
+
+    .stat-card {
+      padding: 22px;
+      height: 100%;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+    }
+
+    .content-card {
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-control,
+    .form-select {
+      padding: 11px;
+      border-radius: 10px;
+    }
+
+    .btn {
+      border-radius: 10px;
+      padding: 10px 15px;
+    }
+
+    .table thead th {
+      background: #f0f5fc;
+      color: #53647b;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .table td {
+      vertical-align: middle;
+    }
+
+    .address {
+      color: #dbeafe;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .payment-card {
+      border-radius: 18px;
+      padding: 22px;
+      height: 100%;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px #172b4d12;
+    }
+
+    .payment-logo {
+      width: 55px;
+      height: 55px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 27px;
+    }
+
+    footer {
+      color: #8290a5;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 767px) {
+      .sidebar { min-height: auto; }
+      .main-content { padding: 16px; }
+      .hero { padding: 22px; }
+    }
+
+    @media print {
+      .sidebar, .no-print, form, .btn,
+      #searchInput, #filterType {
+        display: none !important;
+      }
+
+      .main-content { padding: 0; }
+      body { background: white; }
+
+      .content-card, .stat-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- MENU SAMPING -->
+    <aside class="col-md-3 col-lg-2 sidebar">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="logo"><i class="bi bi-wallet2"></i></div>
+        <div>
+          <h5 class="mb-0 fw-bold">Kas RT</h5>
+          <small>RT 07 / RW 03</small>
+        </div>
+      </div>
+
+      <p class="text-uppercase small opacity-75">Menu utama</p>
+
+      <a class="menu-link active" href="#dashboard">
+        <i class="bi bi-grid me-2"></i> Dashboard
+      </a>
+      <a class="menu-link" href="#transaksi">
+        <i class="bi bi-arrow-left-right me-2"></i> Transaksi Kas
+      </a>
+      <a class="menu-link" href="#transfer">
+        <i class="bi bi-wallet2 me-2"></i> Transfer Dana
+      </a>
+      <a class="menu-link" href="#kontak">
+        <i class="bi bi-telephone me-2"></i> Kontak RT
+      </a>
+
+      <hr class="border-light opacity-25">
+
+      <p class="small fw-bold mb-2">
+        <i class="bi bi-geo-alt me-2"></i> ALAMAT RT
+      </p>
+      <div class="address">
+        Pancoran Barat 11 G<br>
+        Wilayah RT 07 / RW 03
+      </div>
+
+      <div class="mt-4 p-3 rounded-4" style="background:#ffffff18">
+        <i class="bi bi-shield-check fs-3"></i>
+        <p class="fw-bold mt-2 mb-1">Kas Transparan</p>
+        <small class="address">
+          Catatan pemasukan dan pengeluaran kas warga.
+        </small>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="col-md-9 col-lg-10 main-content">
+
+      <div id="dashboard"
+           class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <div>
+          <p class="text-secondary mb-1">Sistem Informasi Warga</p>
+          <h3 class="fw-bold mb-1">Laporan Kas RT 07 RW 03</h3>
+          <small class="text-secondary">
+            <i class="bi bi-geo-alt"></i> Pancoran Barat 11 G
+          </small>
+        </div>
+
+        <button class="btn btn-outline-primary no-print"
+                onclick="window.print()">
+          <i class="bi bi-printer me-2"></i>Cetak Laporan
+        </button>
+      </div>
+
+      <!-- BANNER -->
+      <section class="hero">
+        <span class="badge bg-light text-primary mb-3">
+          DASHBOARD KAS WARGA
+        </span>
+        <h2 class="fw-bold">Selamat Datang! 👋</h2>
+        <p class="mb-0">
+          Pantau pemasukan, pengeluaran, dan saldo kas RT dengan mudah,
+          rapi, dan transparan.
+        </p>
+      </section>
+
+      <!-- RINGKASAN -->
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <div class="stat-icon bg-success-subtle text-success mb-3">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <p class="text-secondary mb-1">Total Pemasukan</p>
+            <h4 class="fw-bold" id="totalMasuk">Rp0</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <div class="stat-icon bg-danger-subtle text-danger mb-3">
+              <i class="bi bi-graph-down-arrow"></i>
+            </div>
+            <p class="text-secondary mb-1">Total Pengeluaran</p>
+            <h4 class="fw-bold" id="totalKeluar">Rp0</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <div class="stat-icon bg-primary-subtle text-primary mb-3">
+              <i class="bi bi-wallet"></i>
+            </div>
+            <p class="text-secondary mb-1">Saldo Kas</p>
+            <h4 class="fw-bold" id="saldo">Rp0</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <div class="stat-icon bg-warning-subtle text-warning mb-3">
+              <i class="bi bi-receipt"></i>
+            </div>
+            <p class="text-secondary mb-1">Jumlah Transaksi</p>
+            <h4 class="fw-bold" id="jumlahTransaksi">0</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM TRANSAKSI -->
+      <section class="content-card no-print">
+        <h5 class="fw-bold mb-1">
+          <i class="bi bi-plus-circle text-primary me-2"></i>
+          Tambah Transaksi
+        </h5>
+        <p class="text-secondary small mb-4">
+          Masukkan data pemasukan atau pengeluaran kas RT.
+        </p>
+
+        <form id="formTransaksi">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label">Tanggal</label>
+              <input type="date" class="form-control" id="tanggal" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Jenis Transaksi</label>
+              <select class="form-select" id="jenis" required>
+                <option value="masuk">Pemasukan</option>
+                <option value="keluar">Pengeluaran</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Nominal (Rp)</label>
+              <input type="number" class="form-control" id="nominal"
+                     min="1" placeholder="Contoh: 100000" required>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Keterangan</label>
+              <input type="text" class="form-control" id="keterangan"
+                     placeholder="Contoh: Iuran bulanan warga" required>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-plus-lg me-2"></i>Simpan Transaksi
+              </button>
+              <button type="reset" class="btn btn-light border">
+                Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- TABEL TRANSAKSI -->
+      <section id="transaksi" class="content-card">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+          <div>
+            <h5 class="fw-bold mb-1">Riwayat Transaksi</h5>
+            <p class="text-secondary small mb-0">
+              Daftar catatan kas warga RT.
+            </p>
+          </div>
+
+          <button onclick="eksporData()"
+                  class="btn btn-outline-success no-print">
+            <i class="bi bi-download me-2"></i>Backup Data
+          </button>
+        </div>
+
+        <div class="row g-2 mb-3 no-print">
+          <div class="col-md-8">
+            <input id="searchInput" class="form-control"
+                   placeholder="Cari keterangan transaksi..."
+                   oninput="tampilkanData()">
+          </div>
+
+          <div class="col-md-4">
+            <select id="filterType" class="form-select"
+                    onchange="tampilkanData()">
+              <option value="semua">Semua Transaksi</option>
+              <option value="masuk">Pemasukan</option>
+              <option value="keluar">Pengeluaran</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Tanggal</th>
+                <th>Keterangan</th>
+                <th>Jenis</th>
+                <th>Nominal</th>
+                <th class="no-print">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tabelTransaksi"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TRANSFER DANA DAN GOPAY -->
+      <section id="transfer" class="content-card">
+        <h5 class="fw-bold mb-2">
+          <i class="bi bi-wallet2 text-primary me-2"></i>
+          Transfer DANA & GoPay
+        </h5>
+        <p class="text-secondary mb-4">
+          Gunakan nomor berikut untuk pembayaran kas RT.
+          Pastikan nama penerima sesuai sebelum transfer.
+        </p>
+
+        <div class="row g-4">
+          <!-- DANA -->
+          <div class="col-md-6">
+            <div class="payment-card"
+                 style="background:linear-gradient(135deg,#e8f3ff,#f7fbff);
+                        border:1px solid #cfe4ff;">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="payment-logo" style="background:#1688f8;">
+                  <i class="bi bi-wallet2"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">DANA</h5>
+                  <span class="badge text-bg-primary">Pembayaran Digital</span>
+                </div>
+              </div>
+
+              <p class="text-secondary small mb-1">Nomor DANA</p>
+              <h4 class="fw-bold" id="nomorDana">0895630348400</h4>
+
+              <button class="btn btn-primary mt-2 no-print"
+                      onclick="salinNomor('nomorDana')">
+                <i class="bi bi-clipboard me-2"></i>Salin Nomor DANA
+              </button>
+            </div>
+          </div>
+
+          <!-- GOPAY -->
+          <div class="col-md-6">
+            <div class="payment-card"
+                 style="background:linear-gradient(135deg,#e7fff4,#f7fffb);
+                        border:1px solid #bdebd7;">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="payment-logo" style="background:#00a86b;">
+                  <i class="bi bi-phone"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">GoPay</h5>
+                  <span class="badge text-bg-success">Pembayaran Digital</span>
+                </div>
+              </div>
+
+              <p class="text-secondary small mb-1">Nomor GoPay</p>
+              <h4 class="fw-bold" id="nomorGopay">0895630348400</h4>
+
+              <button class="btn btn-success mt-2 no-print"
+                      onclick="salinNomor('nomorGopay')">
+                <i class="bi bi-clipboard me-2"></i>Salin Nomor GoPay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-warning mt-4 mb-0">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i>
+          <strong>Perhatian:</strong>
+          Pastikan nomor dan nama penerima benar sebelum mengirim uang.
+          Simpan bukti transfer dan konfirmasikan pembayaran kepada pengurus RT.
+        </div>
+      </section>
+
+      <!-- KONTAK RT -->
+      <section id="kontak" class="content-card">
+        <h5 class="fw-bold mb-3">
+          <i class="bi bi-telephone text-primary me-2"></i>
+          Informasi dan Kontak RT
+        </h5>
+
+        <div class="row align-items-center g-3">
+          <div class="col-md-8">
+            <p class="mb-1 fw-semibold">RT 07 / RW 03</p>
+            <p class="text-secondary mb-2">
+              <i class="bi bi-geo-alt me-2"></i>Pancoran Barat 11 G
+            </p>
+            <p class="mb-0">
+              <i class="bi bi-whatsapp text-success me-2"></i>
+              082258535965
+            </p>
+          </div>
+
+          <div class="col-md-4 text-md-end">
+            <a href="https://wa.me/6282258535965"
+               target="_blank" rel="noopener"
+               class="btn btn-success">
+              <i class="bi bi-whatsapp me-2"></i>
+              Hubungi via WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © 2026 Laporan Kas RT 07 / RW 03 · Pancoran Barat 11 G
+      </footer>
+
+    </main>
+  </div>
+</div>
+
+<script>
+  // Mengambil transaksi dari penyimpanan browser
+  let transaksi = [];
+
+  try {
+    transaksi = JSON.parse(
+      localStorage.getItem("laporanKasRT_v1")
+    ) || [];
+  } catch (error) {
+    transaksi = [];
+  }
+
+  const formatRupiah = angka =>
+    new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0
+    }).format(angka);
+
+  document.getElementById("tanggal").value =
+    new Date().toLocaleDateString("en-CA");
+
+  function simpanData() {
+    localStorage.setItem(
+      "laporanKasRT_v1",
+      JSON.stringify(transaksi)
+    );
+  }
+
+  // Menambahkan transaksi baru
+  document.getElementById("formTransaksi")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const tanggal = document.getElementById("tanggal").value;
+      const jenis = document.getElementById("jenis").value;
+      const nominal = Number(document.getElementById("nominal").value);
+      const keterangan =
+        document.getElementById("keterangan").value.trim();
+
+      if (!tanggal || !keterangan || nominal <= 0) {
+        alert("Mohon isi semua data dengan benar.");
+        return;
+      }
+
+      transaksi.push({
+        id: Date.now(),
+        tanggal,
+        jenis,
+        nominal,
+        keterangan
+      });
+
+      simpanData();
+      tampilkanData();
+      this.reset();
+
+      document.getElementById("tanggal").value =
+        new Date().toLocaleDateString("en-CA");
+
+      alert("Transaksi berhasil disimpan!");
+    });
+
+  // Menampilkan transaksi dan menghitung saldo
+  function tampilkanData() {
+    const pencarian =
+      document.getElementById("searchInput").value.toLowerCase();
+    const filter = document.getElementById("filterType").value;
+
+    const data = transaksi.filter(item =>
+      item.keterangan.toLowerCase().includes(pencarian) &&
+      (filter === "semua" || item.jenis === filter)
+    );
+
+    const masuk = transaksi
+      .filter(item => item.jenis === "masuk")
+      .reduce((total, item) => total + item.nominal, 0);
+
+    const keluar = transaksi
+      .filter(item => item.jenis === "keluar")
+      .reduce((total, item) => total + item.nominal, 0);
+
+    document.getElementById("totalMasuk").textContent =
+      formatRupiah(masuk);
+    document.getElementById("totalKeluar").textContent =
+      formatRupiah(keluar);
+    document.getElementById("saldo").textContent =
+      formatRupiah(masuk - keluar);
+    document.getElementById("jumlahTransaksi").textContent =
+      transaksi.length;
+
+    const tbody = document.getElementById("tabelTransaksi");
+
+    if (data.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="6" class="text-center text-secondary py-4">
+            Belum ada data transaksi.
+          </td>
+        </tr>`;
+      return;
+    }
+
+    tbody.innerHTML = data.map((item, index) => `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${escapeHTML(item.tanggal)}</td>
+        <td>${escapeHTML(item.keterangan)}</td>
+        <td>
+          <span class="badge ${
+            item.jenis === "masuk"
+              ? "bg-success-subtle text-success"
+              : "bg-danger-subtle text-danger"
+          }">
+            ${item.jenis === "masuk" ? "Pemasukan" : "Pengeluaran"}
+          </span>
+        </td>
+        <td class="fw-semibold">${formatRupiah(item.nominal)}</td>
+        <td class="no-print">
+          <button class="btn btn-sm btn-outline-danger"
+                  onclick="hapusTransaksi(${item.id})"
+                  aria-label="Hapus transaksi">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  // Melindungi teks dari interpretasi sebagai HTML
+  function escapeHTML(teks) {
+    return String(teks).replace(/[&<>"']/g, karakter => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[karakter]);
+  }
+
+  // Menghapus transaksi
+  function hapusTransaksi(id) {
+    if (!confirm("Yakin ingin menghapus transaksi ini?")) return;
+
+    transaksi = transaksi.filter(item => item.id !== id);
+    simpanData();
+    tampilkanData();
+  }
+
+  // Backup transaksi ke file JSON
+  function eksporData() {
+    const file = new Blob(
+      [JSON.stringify(transaksi, null, 2)],
+      { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(file);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "backup-kas-rt.json";
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+
+  // Menyalin nomor pembayaran
+  async function salinNomor(id) {
+    const nomor =
+      document.getElementById(id).textContent.trim();
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(nomor);
+      } else {
+        const input = document.createElement("textarea");
+        input.value = nomor;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+
+        const berhasil = document.execCommand("copy");
+        input.remove();
+
+        if (!berhasil) throw new Error("Gagal menyalin");
+      }
+
+      alert("Nomor berhasil disalin: " + nomor);
+    } catch (error) {
+      prompt("Silakan salin nomor berikut:", nomor);
+    }
+  }
+
+  // Menampilkan data saat halaman dibuka
+  tampilkanData();
+</script>
+
+</body>
+</html>
+```
